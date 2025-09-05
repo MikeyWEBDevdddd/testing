@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Randhir Foundation</title>
+    <!--favicon-->
+    <link rel="icon" type="image/png" href="logo.png">
+<!--favicon end-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
@@ -350,6 +353,31 @@
             animation: float 3s ease-in-out infinite;
         }
         
+                /* ...existing code... */
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .form-group select:focus {
+            border: 1.5px solid var(--yellow);
+        }
+
+        .form-group option {
+            background: var(--black);
+            color: white;
+        }
+        /* ...existing code... */   
         @keyframes float {
             0% { transform: translate(-50%, -100%); }
             50% { transform: translate(-50%, -115%); }
@@ -453,7 +481,9 @@
 <body>
     <!-- Preloader -->
     <div id="preloader">
-        <div class="logo">RANDHIR FOUNDATION</div>
+        <div class="logo">
+        <img src="logo.png" alt="Randhir Foundation Logo" style="width:150px; height:150px; border-radius:50%;">
+    </div>
     </div>
 
     <!-- Navigation -->
@@ -487,18 +517,27 @@
         <div class="courses-container">
             <div class="course-card glass-effect" onclick="openPopup('science')">
                 <div class="course-icon"><i class="fas fa-atom"></i></div>
-                <h3 class="course-title">Science Program</h3>
-                <p>Comprehensive science curriculum for competitive exams and board preparation.</p>
+                <h3 class="course-title">Digital Mastery 1st Batch</h3>
+                <p>💥 Crack Any Digital Job in Manipur 💥</p>
+                <hr style="border: none; height: 3px; background-color: rgb(238, 255, 0);">
+                <p>Class Starting from: 25th Sept.</p>
+                <p>Course Fee: ₹1299</p>
             </div>
             <div class="course-card glass-effect" onclick="openPopup('math')">
                 <div class="course-icon"><i class="fas fa-calculator"></i></div>
-                <h3 class="course-title">Mathematics</h3>
-                <p>From basics to advanced concepts, master mathematics with our expert faculty.</p>
+                <h3 class="course-title">Tally 4th Batch</h3>
+                <p>💥Learn Accounting and Bookkeeping with Tally💥</p>
+                <hr style="border: none; height: 3px; background-color: rgb(238, 255, 0);">
+                <p>Class Starting soon.</p>
+                <p>Course Fee: ₹699</p>
             </div>
             <div class="course-card glass-effect" onclick="openPopup('language')">
                 <div class="course-icon"><i class="fas fa-language"></i></div>
-                <h3 class="course-title">Language Arts</h3>
-                <p>Improve communication skills in English and other languages with our specialized courses.</p>
+                <h3 class="course-title">Basic Web Development 2nd Batch</h3>
+                <p>💥From basics to advanced concepts, master web development with our expert faculty💥</p>
+                <hr style="border: none; height: 3px; background-color: rgb(238, 255, 0);">
+                <p>Class Starting soon.</p>
+                <p>Course Fee: ₹599</p>
             </div>
         </div>
     </section>
@@ -528,17 +567,48 @@
                 <p>Begin your educational journey</p>
             </div>
         </div>
+
+        <!-- ...existing code... -->
+<div class="popup-content glass-effect">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2>Enroll in <span id="course-name">Course</span></h2>
+    <form id="enrollment-form">
+        <div class="form-group">
+            <label for="course-select">Select Course</label>
+            <select id="course-select" required>
+                <option value="" disabled selected>Select a course</option>
+                <option value="Digital Mastery 1st Batch">Digital Mastery 1st Batch</option>
+                <option value="Tally 4th Batch">Tally 4th Batch</option>
+                <option value="Basic Web Development 2nd Batch">Basic Web Development 2nd Batch</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" required>
+        </div>
+        <button type="submit" class="submit-btn">Submit Enrollment</button>
+    </form>
+</div>
+<!-- ...existing code... -->
     </section>
 
     <!-- About Section -->
     <section id="about">
         <h2 class="section-title">About Us</h2>
         <div class="about-content glass-effect">
-            <p>Randhir Foundation was established with a vision to provide quality education to all segments of society. What started as a coaching center has now grown into a full-fledged educational foundation with plans to expand into school and college education.</p>
+            <p>Randhir Foundation was established with a vision to provide quality education to all segments of society. What started as a Online Teaching platform has now grown into a full-fledged educational foundation with plans to expand into school and college education.</p>
             <br>
             <p>Our mission is to make high-quality education accessible and affordable while maintaining the highest standards of teaching. We believe in nurturing not just academic excellence but also character and values.</p>
             <br>
-            <p>Our future roadmap includes establishing a K-12 school by 2025 and a degree college by 2028, creating a complete educational ecosystem.</p>
+            <p>Our future roadmap includes establishing a Coaching Center by 2028, a school by 2032, and a degree college by 20, creating a complete educational ecosystem.</p>
         </div>
     </section>
 
@@ -570,10 +640,14 @@
         <div class="map-container glass-effect">
             <!-- Google Map would be embedded here -->
             <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #2c2c2c;">
+                <div class="map-container glass-effect">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d787.0845298379587!2d93.91066857233459!3d24.78484303004749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374927de371e9fc1%3A0xd696578636c67895!2sRandhir%20Foundation!5e1!3m2!1sen!2sin!4v1757086060386!5m2!1sen!2sin"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
                 <i class="fas fa-map-marker-alt map-pin"></i>
             </div>
         </div>
-        <p>© 2023 Randhir Foundation. All rights reserved.</p>
+        <p>© 2024 Randhir Foundation. All rights reserved.</p>
     </footer>
 
     <!-- Popup Form -->
@@ -725,19 +799,21 @@
             });
             
             // Form submission
+                    // ...existing code...
             document.getElementById('enrollment-form').addEventListener('submit', function(e) {
                 e.preventDefault();
-                const courseName = document.getElementById('course-name').textContent;
+                const courseName = document.getElementById('course-select').value;
                 const name = document.getElementById('name').value;
                 const phone = document.getElementById('phone').value;
-                
+
                 // Send to WhatsApp
                 const message = `Hello, I would like to enroll in ${courseName}. My name is ${name} and my phone number is ${phone}.`;
                 const whatsappUrl = `https://wa.me/916009164298?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
-                
+
                 closePopup();
             });
+            // ...existing code...
         });
         
         // Popup functions
